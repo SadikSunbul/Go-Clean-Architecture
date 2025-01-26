@@ -1,0 +1,60 @@
+package config
+
+import (
+	"fmt"
+	"github.com/caarlos0/env"
+	"gopkg.in/yaml.v3"
+	"os"
+	"path/filepath"
+
+	"runtime"
+)
+
+// :::::::::::::::::
+// 		Config
+// :::::::::::::::::
+
+type Config struct {
+	Fiber       Fiber  `yaml:"fiber" json:"fiber"`
+	Mongo       Mongo  `yaml:"mongo" json:"mongo"`
+	Environment string `yaml:"environment" json:"environment"`
+}
+
+type Fiber struct {
+	Port int `yaml:"port" json:"port"`
+}
+
+type Mongo struct {
+	URI          string `yaml:"uri" json:"uri"`
+	DatabaseName string `yaml:"databaseName" json:"databaseName"`
+}
+
+var cfg Config
+
+func LoadConfig(fName string) (*Config, error) {
+
+	_, filename, _, _ := runtime.Caller(0)
+	currentDir := filepath.Dir(filename)
+	configPath := filepath.Join(currentDir, fName)
+
+	yamlFile, err := os.ReadFile(configPath)
+	if err != nil {
+		return nil, fmt.Errorf("config dosyası okunamadı: %w", err)
+	}
+
+	err = yaml.Unmarshal(yamlFile, &cfg)
+	if err != nil {
+		return nil, fmt.Errorf("config parse edilemedi: %w", err)
+	}
+
+	// Çevresel değişkenleri kontrol et
+	if err := env.Parse(&cfg); err != nil {
+		return nil, fmt.Errorf("çevresel değişkenler parse edilemedi: %w", err)
+	}
+
+	return &cfg, nil
+}
+
+func GetConfig() *Config {
+	return &cfg
+}
