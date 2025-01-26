@@ -1,9 +1,10 @@
 package dto
 
 import (
+	"time"
+
 	"github.com/SadikSunbul/Go-Clean-Architecture/model/entity"
 	"go.mongodb.org/mongo-driver/bson/primitive"
-	"time"
 )
 
 type PostDto struct {
@@ -12,6 +13,12 @@ type PostDto struct {
 	Content   string             `bson:"content" json:"content"`
 	CreatedAt time.Time          `bson:"created_at" json:"created_at"`
 	UpdatedAt time.Time          `bson:"updated_at" json:"updated_at"`
+}
+
+type PostUpdateDto struct {
+	Title     string    `bson:"title,omitempty" json:"title"`
+	Content   string    `bson:"content,omitempty" json:"content"`
+	UpdatedAt time.Time `bson:"updated_at" json:"updated_at"`
 }
 
 func (p *PostDto) ToPost() entity.Post {

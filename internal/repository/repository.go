@@ -2,14 +2,17 @@ package repository
 
 import (
 	"context"
+	"errors"
+
 	"github.com/SadikSunbul/Go-Clean-Architecture/pkg/db"
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
 type IRepository[T interface{}] interface {
 	Create(entity T) (T, error)
-	Update(id string, entity T) (T, error)
+	Update(id string, entity bson.M) (T, error)
 	Delete(id string) error
 	GetById(id string) (T, error)
 	GetByField(filter bson.M) (T, error)
@@ -26,17 +29,22 @@ func NewRepository[T interface{}](db db.IDataBase, collectionName string) *Repos
 	}
 }
 
-func (r *Repostiroty[T]) Create(entity T) (T, error) {
-	_, err := r.collection.InsertOne(context.Background(), entity)
+func (r *Repostiroty[T]) Create(entity T) (T, interface{}, error) {
+	resp, err := r.collection.InsertOne(context.Background(), entity)
 	if err != nil {
 		var zero T // T tipinin zero value'su
-		return zero, err
+		return zero, nil, err
 	}
-	return entity, nil
+
+	return entity, resp.InsertedID, nil
 }
 
-func (r *Repostiroty[T]) Update(id string, entity T) (*mongo.UpdateResult, error) {
-	upresult, err := r.collection.ReplaceOne(context.Background(), bson.M{"_id": id}, entity)
+func (r *Repostiroty[T]) Update(id string, entity bson.M) (*mongo.UpdateResult, error) {
+	fid, err := primitive.ObjectIDFromHex(id)
+	if err != nil {
+		return nil, errors.New("invalid post id format")
+	}
+	upresult, err := r.collection.UpdateOne(context.Background(), bson.M{"_id": fid}, entity)
 	if err != nil {
 		return nil, err
 	}
@@ -44,7 +52,11 @@ func (r *Repostiroty[T]) Update(id string, entity T) (*mongo.UpdateResult, error
 }
 
 func (r *Repostiroty[T]) Delete(id string) (*mongo.DeleteResult, error) {
-	deleteresult, err := r.collection.DeleteOne(context.Background(), bson.M{"_id": id})
+	fid, err := primitive.ObjectIDFromHex(id)
+	if err != nil {
+		return nil, errors.New("invalid post id format")
+	}
+	deleteresult, err := r.collection.DeleteOne(context.Background(), bson.M{"_id": fid})
 	if err != nil {
 		return nil, err
 	}
@@ -52,8 +64,15 @@ func (r *Repostiroty[T]) Delete(id string) (*mongo.DeleteResult, error) {
 }
 
 func (r *Repostiroty[T]) GetById(id string) (T, error) {
+	// ID format kontrolü
+	fid, err := primitive.ObjectIDFromHex(id)
+	if err != nil {
+		var zero T
+		return zero, errors.New("invalid post id format")
+	}
+
 	var entity T
-	err := r.collection.FindOne(context.Background(), bson.M{"_id": id}).Decode(&entity)
+	err = r.collection.FindOne(context.Background(), bson.M{"_id": fid}).Decode(&entity)
 	if err != nil {
 		var zero T
 		return zero, err

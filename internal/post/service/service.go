@@ -2,17 +2,20 @@ package service
 
 import (
 	"errors"
+
 	"github.com/SadikSunbul/Go-Clean-Architecture/internal/post/dto"
 	"github.com/SadikSunbul/Go-Clean-Architecture/internal/post/repository"
 	"github.com/SadikSunbul/Go-Clean-Architecture/model/entity"
 	"github.com/quangdangfit/gocommon/validation"
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 type IPostService interface {
 	Create(post *dto.PostDto) (*entity.Post, error)
-	Update(id string, post *dto.PostDto) (int64, error)
+	Update(id string, post *dto.PostUpdateDto) (int64, error)
 	Delete(id string) error
-	GetById(id string) (*entity.Post, error)
+	GetById(id string) (entity.Post, error)
 	GetAll() (*[]entity.Post, error)
 }
 
@@ -33,24 +36,25 @@ func (s *PostService) Create(post *dto.PostDto) (*entity.Post, error) {
 		return nil, err
 	}
 
-	result, err := s.repository.Create(post.ToPost())
+	result, id, err := s.repository.Create(post.ToPost())
 	if err != nil {
 		return nil, err
 	}
+	result.ID = id.(primitive.ObjectID)
 	return &result, nil
 }
 
-func (s *PostService) Update(id string, post *dto.PostDto) (int64, error) {
+func (s *PostService) Update(id string, post *dto.PostUpdateDto) (int64, error) {
 	if err := s.validator.ValidateStruct(post); err != nil {
 		return 0, err
 	}
 
-	result, err := s.repository.Update(id, post.ToPost())
+	result, err := s.repository.Update(id, bson.M{"$set": post})
 	if err != nil {
 		return 0, err
 	}
 
-	return result.UpsertedCount, nil
+	return result.ModifiedCount, nil
 }
 
 func (s *PostService) Delete(id string) error {
@@ -67,13 +71,17 @@ func (s *PostService) Delete(id string) error {
 	return nil
 }
 
-func (s *PostService) GetById(id string) (*entity.Post, error) {
+func (s *PostService) GetById(id string) (entity.Post, error) {
+
 	getpost, err := s.repository.GetById(id)
 	if err != nil {
-		return nil, err
+		if err.Error() == "mongo: no documents in result" {
+			return entity.Post{}, errors.New("post not found")
+		}
+		return entity.Post{}, err
 	}
 
-	return &getpost, nil
+	return getpost, nil
 }
 
 func (s *PostService) GetAll() (*[]entity.Post, error) {

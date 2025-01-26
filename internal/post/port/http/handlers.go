@@ -1,6 +1,8 @@
 package http
 
 import (
+	"time"
+
 	"github.com/SadikSunbul/Go-Clean-Architecture/internal/post/dto"
 	"github.com/SadikSunbul/Go-Clean-Architecture/internal/post/service"
 	"github.com/gofiber/fiber/v2"
@@ -38,6 +40,8 @@ func (h *PostHandler) CreatePost(c *fiber.Ctx) error {
 	if err := c.BodyParser(&post); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": err.Error()})
 	}
+	post.CreatedAt = time.Now()
+	post.UpdatedAt = time.Now()
 	reqpost, err := h.service.Create(&post)
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": err.Error()})
@@ -47,10 +51,11 @@ func (h *PostHandler) CreatePost(c *fiber.Ctx) error {
 
 func (h *PostHandler) UpdatePost(c *fiber.Ctx) error {
 	id := c.Params("id")
-	var post dto.PostDto
+	var post dto.PostUpdateDto
 	if err := c.BodyParser(&post); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": err.Error()})
 	}
+	post.UpdatedAt = time.Now()
 	count, err := h.service.Update(id, &post)
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": err.Error()})

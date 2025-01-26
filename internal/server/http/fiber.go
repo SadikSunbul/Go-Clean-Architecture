@@ -36,6 +36,8 @@ func (s *FiberServer) Run() error {
 		return c.SendStatus(fiber.StatusOK)
 	})
 
+	s.MapRoutes()
+	
 	return s.app.Listen(fmt.Sprintf(":%d", s.cfg.Fiber.Port))
 }
 
