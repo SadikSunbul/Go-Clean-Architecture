@@ -17,7 +17,14 @@ import (
 type Config struct {
 	Fiber       Fiber  `yaml:"fiber" json:"fiber"`
 	Mongo       Mongo  `yaml:"mongo" json:"mongo"`
+	JWT         JWT    `yaml:"jwt" json:"jwt"`
 	Environment string `yaml:"environment" json:"environment"`
+}
+
+type JWT struct {
+	AuthSecret              string `yaml:"auth_secret" json:"auth_secret"`
+	AccessTokenExpiredTime  int    `yaml:"access_token_expired_time" json:"access_token_expired_time"`
+	RefreshTokenExpiredTime int    `yaml:"refresh_token_expired_time" json:"refresh_token_expired_time"`
 }
 
 type Fiber struct {

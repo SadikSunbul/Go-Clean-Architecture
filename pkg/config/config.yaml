@@ -6,3 +6,8 @@ mongo:
   databaseName: "CleanCodeTest"
 
 environment: development
+
+jwt:
+  auth_secret: "your_auth_secret"
+  access_token_expired_time: 18000  # 5 * 60 * 60 -> 5 hours
+  refresh_token_expired_time: 604800 # 7 * 24 * 60 * 60 -> 7 days
