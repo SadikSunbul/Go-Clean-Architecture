@@ -6,8 +6,11 @@ import (
 	"gopkg.in/yaml.v3"
 	"os"
 	"path/filepath"
-
 	"runtime"
+)
+
+const (
+	ProductionEnv = "production"
 )
 
 // :::::::::::::::::
