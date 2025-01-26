@@ -5,6 +5,10 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
+// ::::::::::::::::::::::::::::::::::::
+// 		AUTH JWT MIDDLEWARE
+// ::::::::::::::::::::::::::::::::::::
+
 func JWTAuth() func(c *fiber.Ctx) error {
 	return JWT(jtoken.AccessTokenType)
 }

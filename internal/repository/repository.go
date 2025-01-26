@@ -10,6 +10,10 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
+// :::::::::::::::::::::::::::::
+// 			Repository
+// :::::::::::::::::::::::::::::
+
 type IRepository[T interface{}] interface {
 	Create(entity T) (T, error)
 	Update(id string, entity bson.M) (T, error)

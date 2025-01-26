@@ -10,6 +10,10 @@ import (
 	"github.com/quangdangfit/gocommon/logger"
 )
 
+// :::::::::::::::::
+// 		JWT
+// :::::::::::::::::
+
 const (
 	AccessTokenType  = "x-access"  // 5 minutes
 	RefreshTokenType = "x-refresh" // 30 days

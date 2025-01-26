@@ -37,13 +37,17 @@ func (s *FiberServer) Run() error {
 	})
 
 	s.MapRoutes()
-	
+
 	return s.app.Listen(fmt.Sprintf(":%d", s.cfg.Fiber.Port))
 }
 
 func (s *FiberServer) GetApp() *fiber.App {
 	return s.app
 }
+
+// ::::::::::::::::::::::::
+// 		 Map Routes
+// ::::::::::::::::::::::::
 
 func (s *FiberServer) MapRoutes() error {
 	v1 := s.app.Group("/api/v1")
