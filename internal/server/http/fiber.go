@@ -6,6 +6,8 @@ import (
 	"github.com/SadikSunbul/Go-Clean-Architecture/pkg/db"
 	"github.com/gofiber/fiber/v2"
 	"github.com/quangdangfit/gocommon/validation"
+
+	posthttp "github.com/SadikSunbul/Go-Clean-Architecture/internal/post/port/http"
 )
 
 // ::::::::::::::::::::::::::
@@ -16,10 +18,10 @@ type FiberServer struct {
 	app       *fiber.App
 	cfg       *config.Config
 	validator validation.Validation
-	db        db.MongoDB
+	db        db.IDataBase
 }
 
-func NewFiberServer(db db.MongoDB, cfg *config.Config, validator validation.Validation) *FiberServer {
+func NewFiberServer(db db.IDataBase, cfg *config.Config, validator validation.Validation) *FiberServer {
 	return &FiberServer{
 		db:        db,
 		cfg:       cfg,
@@ -44,9 +46,7 @@ func (s *FiberServer) GetApp() *fiber.App {
 func (s *FiberServer) MapRoutes() error {
 	v1 := s.app.Group("/api/v1")
 
-	v1.Get("/ping", func(ctx *fiber.Ctx) error {
-		return ctx.SendString("pong")
-	})
+	posthttp.Routes(v1, s.db, s.validator)
 
 	return nil
 }

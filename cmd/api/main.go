@@ -33,7 +33,7 @@ func main() {
 	//       Server
 	// ::::::::::::::::::
 
-	server := http.NewFiberServer(*db, cfg, validator)
+	server := http.NewFiberServer(db, cfg, validator)
 	if err := server.Run(); err != nil {
 		log.Fatalf("Server Error: %v", err)
 	}

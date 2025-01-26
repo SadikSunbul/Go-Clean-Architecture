@@ -9,7 +9,7 @@ import (
 
 type IRepository[T interface{}] interface {
 	Create(entity T) (T, error)
-	Update(id string, entity bson.M) (T, error)
+	Update(id string, entity T) (T, error)
 	Delete(id string) error
 	GetById(id string) (T, error)
 	GetByField(filter bson.M) (T, error)
@@ -35,8 +35,8 @@ func (r *Repostiroty[T]) Create(entity T) (T, error) {
 	return entity, nil
 }
 
-func (r *Repostiroty[T]) Update(id string, entity bson.M) (*mongo.UpdateResult, error) {
-	upresult, err := r.collection.UpdateOne(context.Background(), bson.M{"_id": id}, bson.M{"$set": entity})
+func (r *Repostiroty[T]) Update(id string, entity T) (*mongo.UpdateResult, error) {
+	upresult, err := r.collection.ReplaceOne(context.Background(), bson.M{"_id": id}, entity)
 	if err != nil {
 		return nil, err
 	}

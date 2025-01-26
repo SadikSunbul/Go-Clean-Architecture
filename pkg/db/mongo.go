@@ -33,7 +33,7 @@ func NewMongoDB() (*MongoDB, error) {
 	return &MongoDB{Database: db}, nil
 }
 
-func (db *MongoDB) GetDatabse() *mongo.Database {
+func (db *MongoDB) GetDatabase() *mongo.Database {
 	return db.Database
 }
 func (db *MongoDB) CreateCollection(name string) *mongo.Collection {
