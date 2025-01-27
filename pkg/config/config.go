@@ -21,6 +21,7 @@ type Config struct {
 	Fiber       Fiber  `yaml:"fiber" json:"fiber"`
 	Mongo       Mongo  `yaml:"mongo" json:"mongo"`
 	JWT         JWT    `yaml:"jwt" json:"jwt"`
+	Redis       Redis  `yaml:"redis" json:"redis"`
 	Environment string `yaml:"environment" json:"environment"`
 }
 
@@ -37,6 +38,12 @@ type Fiber struct {
 type Mongo struct {
 	URI          string `yaml:"uri" json:"uri"`
 	DatabaseName string `yaml:"databaseName" json:"databaseName"`
+}
+
+type Redis struct {
+	Uri      string `yaml:"uri"  json:"redis_uri"`
+	Password string `yaml:"password"  json:"redis_password"`
+	Db       int    `yaml:"db"  json:"redis_db"`
 }
 
 var cfg Config

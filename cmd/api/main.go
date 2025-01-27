@@ -4,6 +4,7 @@ import (
 	"github.com/SadikSunbul/Go-Clean-Architecture/internal/server/http"
 	"github.com/SadikSunbul/Go-Clean-Architecture/pkg/config"
 	"github.com/SadikSunbul/Go-Clean-Architecture/pkg/db"
+	"github.com/SadikSunbul/Go-Clean-Architecture/pkg/redis"
 	"github.com/quangdangfit/gocommon/logger"
 	"github.com/quangdangfit/gocommon/validation"
 	"log"
@@ -29,11 +30,21 @@ func main() {
 
 	validator := validation.New()
 
+	// ::::::::::::::::::::::::::::::::::::
+	//       Redis service Connection
+	// ::::::::::::::::::::::::::::::::::::
+
+	cache := redis.New(redis.Config{
+		Address:  cfg.Redis.Uri,
+		Password: cfg.Redis.Password,
+		Database: cfg.Redis.Db,
+	})
+
 	// ::::::::::::::::::
 	//       Server
 	// ::::::::::::::::::
 
-	server := http.NewFiberServer(db, cfg, validator)
+	server := http.NewFiberServer(db, cfg, validator, cache)
 	if err := server.Run(); err != nil {
 		log.Fatalf("Server Error: %v", err)
 	}

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/SadikSunbul/Go-Clean-Architecture/pkg/config"
 	"github.com/SadikSunbul/Go-Clean-Architecture/pkg/db"
+	"github.com/SadikSunbul/Go-Clean-Architecture/pkg/redis"
 	"github.com/gofiber/fiber/v2"
 	"github.com/quangdangfit/gocommon/validation"
 
@@ -19,13 +20,15 @@ type FiberServer struct {
 	cfg       *config.Config
 	validator validation.Validation
 	db        db.IDataBase
+	cache     redis.IRedis
 }
 
-func NewFiberServer(db db.IDataBase, cfg *config.Config, validator validation.Validation) *FiberServer {
+func NewFiberServer(db db.IDataBase, cfg *config.Config, validator validation.Validation, redis redis.IRedis) *FiberServer {
 	return &FiberServer{
 		db:        db,
 		cfg:       cfg,
 		validator: validator,
+		cache:     redis,
 	}
 }
 
