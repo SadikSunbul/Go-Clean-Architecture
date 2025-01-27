@@ -3,9 +3,10 @@ package redis
 import (
 	"context"
 	"encoding/json"
+	"time"
+
 	goredis "github.com/go-redis/redis/v8"
 	"github.com/quangdangfit/gocommon/logger"
-	"time"
 )
 
 // ::::::::::::::::::
@@ -17,6 +18,8 @@ const (
 )
 
 // IRedis interface
+//
+//go:generate mockery --name=IRedis
 type IRedis interface {
 	IsConnected() bool
 	Get(key string, value interface{}) error

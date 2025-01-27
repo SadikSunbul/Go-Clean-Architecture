@@ -2,6 +2,7 @@ package db
 
 import (
 	"context"
+
 	"github.com/SadikSunbul/Go-Clean-Architecture/pkg/config"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -11,6 +12,9 @@ import (
 // 		MongoDB
 // ::::::::::::::::::::
 
+// mockery --name=IDataBase --output=./mocks     | ile üret
+
+//go:generate mockery --name=IDatabase
 type IDataBase interface {
 	GetDatabase() *mongo.Database
 	CreateCollection(name string) *mongo.Collection
