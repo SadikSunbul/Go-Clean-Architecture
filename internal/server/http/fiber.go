@@ -38,7 +38,7 @@ func (s *FiberServer) Run() error {
 	s.app = fiber.New()
 
 	// Rate limiter'ı tüm route'lardan önce ekle
-	s.app.Use(middleware.RateLimiter())
+	s.app.Use(middleware.RateLimiter(s.cfg))
 
 	s.app.Get("/health", func(c *fiber.Ctx) error {
 		return c.SendStatus(fiber.StatusOK)

@@ -8,8 +8,7 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/limiter"
 )
 
-func RateLimiter() fiber.Handler {
-	cfg := config.GetConfig()
+func RateLimiter(cfg *config.Config) fiber.Handler {
 	return limiter.New(limiter.Config{
 		Max:        cfg.Fiber.RateLimit.Max,
 		Expiration: time.Duration(cfg.Fiber.RateLimit.Expiration) * time.Minute,
