@@ -5,14 +5,15 @@ import (
 	"github.com/SadikSunbul/Go-Clean-Architecture/internal/post/service"
 	"github.com/SadikSunbul/Go-Clean-Architecture/pkg/db"
 	"github.com/SadikSunbul/Go-Clean-Architecture/pkg/middleware"
+	"github.com/SadikSunbul/Go-Clean-Architecture/pkg/redis"
 	"github.com/gofiber/fiber/v2"
 	"github.com/quangdangfit/gocommon/validation"
 )
 
-func Routes(app fiber.Router, db db.IDataBase, validator validation.Validation) {
+func Routes(app fiber.Router, db db.IDataBase, validator validation.Validation, redis redis.IRedis) {
 	postRepo := repository.NewPostRepository(db) // Database Collection setting is made here
 	postService := service.NewPostService(validator, *postRepo)
-	postHandler := NewPostHandler(postService)
+	postHandler := NewPostHandler(postService, redis)
 
 	jwtvalidmiddleware := middleware.JWTAuth()
 

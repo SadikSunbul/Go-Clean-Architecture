@@ -6,12 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="2082f271-2b93-46d5-8761-1a36d7315e8e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/post/port/http/handlers.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/post/port/http/handlers.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/post/port/http/routes.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/post/port/http/routes.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/middleware/jwtAuth.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/middleware/jwtAuth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/redis/redis.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/redis/redis.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/server/http/fiber.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/server/http/fiber.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/config/config.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,16 +103,5 @@
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/internal/post/port/http/handlers.go</url>
-          <line>89</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

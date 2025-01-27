@@ -41,9 +41,10 @@ type Mongo struct {
 }
 
 type Redis struct {
-	Uri      string `yaml:"uri"  json:"redis_uri"`
-	Password string `yaml:"password"  json:"redis_password"`
-	Db       int    `yaml:"db"  json:"redis_db"`
+	Uri                string `yaml:"uri"  json:"redis_uri"`
+	Password           string `yaml:"password"  json:"redis_password"`
+	Db                 int    `yaml:"db"  json:"redis_db"`
+	ProductCachingTime int    `yaml:"product_caching_time"  json:"product_caching_time"`
 }
 
 var cfg Config

@@ -55,7 +55,7 @@ func (s *FiberServer) GetApp() *fiber.App {
 func (s *FiberServer) MapRoutes() error {
 	v1 := s.app.Group("/api/v1")
 
-	posthttp.Routes(v1, s.db, s.validator)
+	posthttp.Routes(v1, s.db, s.validator, s.cache)
 
 	return nil
 }
