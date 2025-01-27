@@ -6,8 +6,11 @@ import (
 	"gopkg.in/yaml.v3"
 	"os"
 	"path/filepath"
-
 	"runtime"
+)
+
+const (
+	ProductionEnv = "production"
 )
 
 // :::::::::::::::::
@@ -17,7 +20,15 @@ import (
 type Config struct {
 	Fiber       Fiber  `yaml:"fiber" json:"fiber"`
 	Mongo       Mongo  `yaml:"mongo" json:"mongo"`
+	JWT         JWT    `yaml:"jwt" json:"jwt"`
+	Redis       Redis  `yaml:"redis" json:"redis"`
 	Environment string `yaml:"environment" json:"environment"`
+}
+
+type JWT struct {
+	AuthSecret              string `yaml:"auth_secret" json:"auth_secret"`
+	AccessTokenExpiredTime  int    `yaml:"access_token_expired_time" json:"access_token_expired_time"`
+	RefreshTokenExpiredTime int    `yaml:"refresh_token_expired_time" json:"refresh_token_expired_time"`
 }
 
 type Fiber struct {
@@ -27,6 +38,13 @@ type Fiber struct {
 type Mongo struct {
 	URI          string `yaml:"uri" json:"uri"`
 	DatabaseName string `yaml:"databaseName" json:"databaseName"`
+}
+
+type Redis struct {
+	Uri                string `yaml:"uri"  json:"redis_uri"`
+	Password           string `yaml:"password"  json:"redis_password"`
+	Db                 int    `yaml:"db"  json:"redis_db"`
+	ProductCachingTime int    `yaml:"product_caching_time"  json:"product_caching_time"`
 }
 
 var cfg Config

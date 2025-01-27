@@ -7,9 +7,9 @@
     <list default="true" id="2082f271-2b93-46d5-8761-1a36d7315e8e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/post/port/http/handlers.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/post/port/http/handlers.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/post/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/post/service/service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/repository/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repository/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/post/port/http/routes.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/post/port/http/routes.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/server/http/fiber.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/server/http/fiber.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/config/config.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +27,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
 }]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2sABu7OmwVuqRLDnYLqpEhgacoj" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -38,13 +42,14 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultGoTemplateProperty": "Go File",
+    "Go Build.go build github.com/SadikSunbul/Go-Clean-Architecture/cmd/api.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
     "com.codeium.enabled": "true",
-    "git-widget-placeholder": "1-clean-architecture-proje-yapısı-ve-katmanların-oluşturulması",
+    "git-widget-placeholder": "4-pkg-implementation",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
     "last_opened_file_path": "/Users/ledger",
@@ -57,6 +62,22 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="go build github.com/SadikSunbul/Go-Clean-Architecture/cmd/api" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="Go-Clean-Architecture" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/SadikSunbul/Go-Clean-Architecture/cmd/api" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/cmd/api/main.go" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build github.com/SadikSunbul/Go-Clean-Architecture/cmd/api" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
