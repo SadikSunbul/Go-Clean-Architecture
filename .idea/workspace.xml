@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2082f271-2b93-46d5-8761-1a36d7315e8e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pkg/redis/mocks/IRedis.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/redis/redis_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2082f271-2b93-46d5-8761-1a36d7315e8e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,10 +37,13 @@
   "keyToString": {
     "DefaultGoTemplateProperty": "Go File",
     "Go Build.go build github.com/SadikSunbul/Go-Clean-Architecture/cmd/api.executor": "Debug",
+    "Go Test.TestCopy_Map in github.com/SadikSunbul/Go-Clean-Architecture/pkg/utils.executor": "Run",
+    "Go Test.TestCopy_Struct in github.com/SadikSunbul/Go-Clean-Architecture/pkg/utils.executor": "Run",
     "Go Test.TestExpiredAccessToken in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken (1).executor": "Run",
     "Go Test.TestExpiredAccessToken in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken.executor": "Run",
     "Go Test.TestTokenPayloadContent in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken.executor": "Run",
     "Go Test.Test_NewRedis in github.com/SadikSunbul/Go-Clean-Architecture/pkg/redis.executor": "Run",
+    "Go Test.Test_Redis_Get in github.com/SadikSunbul/Go-Clean-Architecture/pkg/redis.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
@@ -65,14 +64,29 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.Test_NewRedis in github.com/SadikSunbul/Go-Clean-Architecture/pkg/redis">
-    <configuration name="go build github.com/SadikSunbul/Go-Clean-Architecture/cmd/api" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestCopy_Map in github.com/SadikSunbul/Go-Clean-Architecture/pkg/utils">
+    <configuration name="TestCopy_Map in github.com/SadikSunbul/Go-Clean-Architecture/pkg/utils" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="Go-Clean-Architecture" />
-      <working_directory value="$PROJECT_DIR$" />
+      <working_directory value="$PROJECT_DIR$/pkg/utils" />
+      <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="github.com/SadikSunbul/Go-Clean-Architecture/cmd/api" />
+      <package value="github.com/SadikSunbul/Go-Clean-Architecture/pkg/utils" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/cmd/api/main.go" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestCopy_Map\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestCopy_Struct in github.com/SadikSunbul/Go-Clean-Architecture/pkg/utils" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="Go-Clean-Architecture" />
+      <working_directory value="$PROJECT_DIR$/pkg/utils" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/SadikSunbul/Go-Clean-Architecture/pkg/utils" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestCopy_Struct\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestExpiredAccessToken in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -87,32 +101,6 @@
       <pattern value="^\QTestExpiredAccessToken\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestExpiredAccessToken in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="Go-Clean-Architecture" />
-      <working_directory value="$PROJECT_DIR$/pkg/jtoken" />
-      <parameters value=" -testify.m ^TestExpiredAccessToken$" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestJWTSuite\E$/^\QTestExpiredAccessToken\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestTokenPayloadContent in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="Go-Clean-Architecture" />
-      <working_directory value="$PROJECT_DIR$/pkg/jtoken" />
-      <parameters value=" -testify.m ^TestTokenPayloadContent$" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestJWTSuite\E$/^\QTestTokenPayloadContent\E$" />
-      <method v="2" />
-    </configuration>
     <configuration name="Test_NewRedis in github.com/SadikSunbul/Go-Clean-Architecture/pkg/redis" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="Go-Clean-Architecture" />
       <working_directory value="$PROJECT_DIR$/pkg/redis" />
@@ -125,13 +113,25 @@
       <pattern value="^\QTest_NewRedis\E$" />
       <method v="2" />
     </configuration>
+    <configuration name="Test_Redis_Get in github.com/SadikSunbul/Go-Clean-Architecture/pkg/redis" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="Go-Clean-Architecture" />
+      <working_directory value="$PROJECT_DIR$/pkg/redis" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/SadikSunbul/Go-Clean-Architecture/pkg/redis" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTest_Redis_Get\E$" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestCopy_Map in github.com/SadikSunbul/Go-Clean-Architecture/pkg/utils" />
+        <item itemvalue="Go Test.TestCopy_Struct in github.com/SadikSunbul/Go-Clean-Architecture/pkg/utils" />
+        <item itemvalue="Go Test.Test_Redis_Get in github.com/SadikSunbul/Go-Clean-Architecture/pkg/redis" />
         <item itemvalue="Go Test.Test_NewRedis in github.com/SadikSunbul/Go-Clean-Architecture/pkg/redis" />
         <item itemvalue="Go Test.TestExpiredAccessToken in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken (1)" />
-        <item itemvalue="Go Test.TestExpiredAccessToken in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken" />
-        <item itemvalue="Go Test.TestTokenPayloadContent in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken" />
-        <item itemvalue="Go Build.go build github.com/SadikSunbul/Go-Clean-Architecture/cmd/api" />
       </list>
     </recent_temporary>
   </component>
