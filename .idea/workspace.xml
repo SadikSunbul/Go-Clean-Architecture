@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2082f271-2b93-46d5-8761-1a36d7315e8e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pkg/config/config_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
@@ -42,6 +41,9 @@
   "keyToString": {
     "DefaultGoTemplateProperty": "Go File",
     "Go Build.go build github.com/SadikSunbul/Go-Clean-Architecture/cmd/api.executor": "Debug",
+    "Go Test.TestExpiredAccessToken in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken (1).executor": "Run",
+    "Go Test.TestExpiredAccessToken in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken.executor": "Run",
+    "Go Test.TestTokenPayloadContent in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
@@ -62,7 +64,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Go Test.TestExpiredAccessToken in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken (1)">
     <configuration name="go build github.com/SadikSunbul/Go-Clean-Architecture/cmd/api" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="Go-Clean-Architecture" />
       <working_directory value="$PROJECT_DIR$" />
@@ -72,8 +74,49 @@
       <filePath value="$PROJECT_DIR$/cmd/api/main.go" />
       <method v="2" />
     </configuration>
+    <configuration name="TestExpiredAccessToken in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="Go-Clean-Architecture" />
+      <working_directory value="$PROJECT_DIR$/pkg/jtoken" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestExpiredAccessToken\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestExpiredAccessToken in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="Go-Clean-Architecture" />
+      <working_directory value="$PROJECT_DIR$/pkg/jtoken" />
+      <parameters value=" -testify.m ^TestExpiredAccessToken$" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestJWTSuite\E$/^\QTestExpiredAccessToken\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestTokenPayloadContent in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="Go-Clean-Architecture" />
+      <working_directory value="$PROJECT_DIR$/pkg/jtoken" />
+      <parameters value=" -testify.m ^TestTokenPayloadContent$" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestJWTSuite\E$/^\QTestTokenPayloadContent\E$" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestExpiredAccessToken in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken (1)" />
+        <item itemvalue="Go Test.TestExpiredAccessToken in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken" />
+        <item itemvalue="Go Test.TestTokenPayloadContent in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken" />
         <item itemvalue="Go Build.go build github.com/SadikSunbul/Go-Clean-Architecture/cmd/api" />
       </list>
     </recent_temporary>
