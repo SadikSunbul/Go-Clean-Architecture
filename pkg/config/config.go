@@ -2,11 +2,12 @@ package config
 
 import (
 	"fmt"
-	"github.com/caarlos0/env"
-	"gopkg.in/yaml.v3"
 	"os"
 	"path/filepath"
 	"runtime"
+
+	"github.com/caarlos0/env"
+	"gopkg.in/yaml.v3"
 )
 
 const (
