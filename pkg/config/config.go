@@ -33,7 +33,8 @@ type JWT struct {
 }
 
 type Fiber struct {
-	Port int `yaml:"port" json:"port"`
+	Port      int       `yaml:"port" json:"port"`
+	RateLimit RateLimit `yaml:"rate_limit" json:"rate_limit"`
 }
 
 type Mongo struct {
@@ -46,6 +47,11 @@ type Redis struct {
 	Password           string `yaml:"password"  json:"redis_password"`
 	Db                 int    `yaml:"db"  json:"redis_db"`
 	ProductCachingTime int    `yaml:"product_caching_time"  json:"product_caching_time"`
+}
+
+type RateLimit struct {
+	Max        int `yaml:"max" json:"max"`
+	Expiration int `yaml:"expiration" json:"expiration"`
 }
 
 var cfg Config

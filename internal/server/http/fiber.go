@@ -2,6 +2,7 @@ package http
 
 import (
 	"fmt"
+
 	"github.com/SadikSunbul/Go-Clean-Architecture/pkg/config"
 	"github.com/SadikSunbul/Go-Clean-Architecture/pkg/db"
 	"github.com/SadikSunbul/Go-Clean-Architecture/pkg/redis"
@@ -9,6 +10,7 @@ import (
 	"github.com/quangdangfit/gocommon/validation"
 
 	posthttp "github.com/SadikSunbul/Go-Clean-Architecture/internal/post/port/http"
+	"github.com/SadikSunbul/Go-Clean-Architecture/pkg/middleware"
 )
 
 // ::::::::::::::::::::::::::
@@ -34,6 +36,9 @@ func NewFiberServer(db db.IDataBase, cfg *config.Config, validator validation.Va
 
 func (s *FiberServer) Run() error {
 	s.app = fiber.New()
+
+	// Rate limiter'ı tüm route'lardan önce ekle
+	s.app.Use(middleware.RateLimiter())
 
 	s.app.Get("/health", func(c *fiber.Ctx) error {
 		return c.SendStatus(fiber.StatusOK)

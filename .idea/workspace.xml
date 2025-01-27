@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2082f271-2b93-46d5-8761-1a36d7315e8e" name="Changes" comment="" />
+    <list default="true" id="2082f271-2b93-46d5-8761-1a36d7315e8e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/server/http/fiber.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/server/http/fiber.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,6 +45,7 @@
     "Go Test.TestCopy_Struct in github.com/SadikSunbul/Go-Clean-Architecture/pkg/utils.executor": "Run",
     "Go Test.TestExpiredAccessToken in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken (1).executor": "Run",
     "Go Test.TestExpiredAccessToken in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken.executor": "Run",
+    "Go Test.TestRateLimiter in github.com/SadikSunbul/Go-Clean-Architecture/pkg/middleware.executor": "Run",
     "Go Test.TestTokenPayloadContent in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken.executor": "Run",
     "Go Test.Test_NewRedis in github.com/SadikSunbul/Go-Clean-Architecture/pkg/redis.executor": "Run",
     "Go Test.Test_Redis_Get in github.com/SadikSunbul/Go-Clean-Architecture/pkg/redis.executor": "Run",
@@ -64,7 +69,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestCopy_Map in github.com/SadikSunbul/Go-Clean-Architecture/pkg/utils">
+  <component name="RunManager" selected="Go Test.TestRateLimiter in github.com/SadikSunbul/Go-Clean-Architecture/pkg/middleware">
     <configuration name="TestCopy_Map in github.com/SadikSunbul/Go-Clean-Architecture/pkg/utils" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="Go-Clean-Architecture" />
       <working_directory value="$PROJECT_DIR$/pkg/utils" />
@@ -89,16 +94,16 @@
       <pattern value="^\QTestCopy_Struct\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestExpiredAccessToken in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestRateLimiter in github.com/SadikSunbul/Go-Clean-Architecture/pkg/middleware" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="Go-Clean-Architecture" />
-      <working_directory value="$PROJECT_DIR$/pkg/jtoken" />
+      <working_directory value="$PROJECT_DIR$/pkg/middleware" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken" />
+      <package value="github.com/SadikSunbul/Go-Clean-Architecture/pkg/middleware" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestExpiredAccessToken\E$" />
+      <pattern value="^\QTestRateLimiter\E$" />
       <method v="2" />
     </configuration>
     <configuration name="Test_NewRedis in github.com/SadikSunbul/Go-Clean-Architecture/pkg/redis" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -127,11 +132,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestRateLimiter in github.com/SadikSunbul/Go-Clean-Architecture/pkg/middleware" />
         <item itemvalue="Go Test.TestCopy_Map in github.com/SadikSunbul/Go-Clean-Architecture/pkg/utils" />
         <item itemvalue="Go Test.TestCopy_Struct in github.com/SadikSunbul/Go-Clean-Architecture/pkg/utils" />
         <item itemvalue="Go Test.Test_Redis_Get in github.com/SadikSunbul/Go-Clean-Architecture/pkg/redis" />
         <item itemvalue="Go Test.Test_NewRedis in github.com/SadikSunbul/Go-Clean-Architecture/pkg/redis" />
-        <item itemvalue="Go Test.TestExpiredAccessToken in github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken (1)" />
       </list>
     </recent_temporary>
   </component>
