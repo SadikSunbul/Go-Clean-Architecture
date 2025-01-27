@@ -38,6 +38,8 @@ type redis struct {
 	cmd goredis.Cmdable
 }
 
+// local docker redis : docker run --name test-redis -d -p 6379:6379 redis redis-server --requirepass mysecretpassword
+
 // New Redis interface with config
 func New(config Config) IRedis {
 	ctx, cancel := context.WithTimeout(context.Background(), Timeout*time.Second)

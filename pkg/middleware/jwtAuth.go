@@ -32,8 +32,7 @@ func JWT(tokenType string) func(c *fiber.Ctx) error {
 			})
 		}
 
-		c.Locals("userId", payload["id"])
-		c.Locals("role", payload["role"])
+		c.Locals("name", payload["name"])
 
 		return c.Next()
 	}

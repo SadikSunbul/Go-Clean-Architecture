@@ -1,6 +1,8 @@
 package http
 
 import (
+	"fmt"
+	"github.com/SadikSunbul/Go-Clean-Architecture/pkg/jtoken"
 	"time"
 
 	"github.com/SadikSunbul/Go-Clean-Architecture/internal/post/dto"
@@ -70,4 +72,20 @@ func (h *PostHandler) DeletePost(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": err.Error()})
 	}
 	return c.JSON(fiber.Map{"success": true})
+}
+
+// ::::::::::::::::
+// 		JWT
+// ::::::::::::::::
+
+func (h *PostHandler) CreateJWT(c *fiber.Ctx) error {
+	data := make(map[string]interface{})
+	name := c.Params("name")
+	data["name"] = name
+	token := jtoken.GenerateAccessToken(data)
+	return c.JSON(fiber.Map{"token": token})
+}
+
+func (h *PostHandler) ValidateJWT(c *fiber.Ctx) error {
+	return c.SendString(fmt.Sprintf("Hello, %s", c.Locals("name")))
 }
