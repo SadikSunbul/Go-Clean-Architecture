@@ -6,6 +6,7 @@ import (
 	"github.com/SadikSunbul/Go-Clean-Architecture/pkg/db"
 )
 
+//go:generate mockery --name=IPostRepository
 type IPostRepository interface {
 	repository.IRepository[entity.Post]
 }

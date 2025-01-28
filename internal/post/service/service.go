@@ -11,6 +11,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
+//go:generate mockery --name=IPostService
 type IPostService interface {
 	Create(post *dto.PostDto) (*entity.Post, error)
 	Update(id string, post *dto.PostUpdateDto) (int64, error)

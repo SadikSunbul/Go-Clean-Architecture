@@ -1,0 +1,266 @@
+basePath: /api/v1
+definitions:
+  dto.PostDto:
+    properties:
+      content:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  dto.PostUpdateDto:
+    properties:
+      content:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  dto.Response:
+    properties:
+      data: {}
+      error:
+        type: string
+      status:
+        type: string
+    type: object
+  dto.SuccessResponse:
+    properties:
+      status:
+        type: string
+      update_count:
+        type: integer
+    type: object
+  dto.TokenResponse:
+    properties:
+      status:
+        type: string
+      token:
+        type: string
+    type: object
+  entity.Post:
+    properties:
+      content:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+    type: object
+host: localhost:3000
+info:
+  contact:
+    email: your-email@domain.com
+    name: API Destek
+  description: Bu API, Go Clean Architecture örnek projesidir.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Go Clean Architecture API
+  version: "1.0"
+paths:
+  /auth/token/{name}:
+    get:
+      consumes:
+      - application/json
+      description: Verilen isim için JWT token oluşturur
+      parameters:
+      - description: Kullanıcı adı
+        in: path
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.TokenResponse'
+      summary: JWT token oluştur
+      tags:
+      - auth
+  /auth/validate:
+    get:
+      consumes:
+      - application/json
+      description: JWT token'ı doğrular
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/dto.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: JWT token doğrula
+      tags:
+      - auth
+  /posts:
+    get:
+      consumes:
+      - application/json
+      description: Sistemdeki tüm gönderileri getirir
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/dto.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/entity.Post'
+                  type: array
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/dto.Response'
+      summary: Tüm gönderileri listele
+      tags:
+      - posts
+    post:
+      consumes:
+      - application/json
+      description: Yeni bir gönderi oluşturur
+      parameters:
+      - description: Post bilgileri
+        in: body
+        name: post
+        required: true
+        schema:
+          $ref: '#/definitions/dto.PostDto'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            allOf:
+            - $ref: '#/definitions/dto.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/entity.Post'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/dto.Response'
+      summary: Yeni gönderi oluştur
+      tags:
+      - posts
+  /posts/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Belirtilen ID'ye sahip gönderiyi siler
+      parameters:
+      - description: Post ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.SuccessResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/dto.Response'
+      summary: Gönderiyi sil
+      tags:
+      - posts
+    get:
+      consumes:
+      - application/json
+      description: Belirtilen ID'ye sahip gönderiyi getirir
+      parameters:
+      - description: Post ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/dto.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/entity.Post'
+              type: object
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/dto.Response'
+      summary: Gönderiyi ID ile getir
+      tags:
+      - posts
+    put:
+      consumes:
+      - application/json
+      description: Belirtilen ID'ye sahip gönderiyi günceller
+      parameters:
+      - description: Post ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Güncellenecek post bilgileri
+        in: body
+        name: post
+        required: true
+        schema:
+          $ref: '#/definitions/dto.PostUpdateDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/dto.Response'
+      summary: Gönderiyi güncelle
+      tags:
+      - posts
+schemes:
+- http
+- https
+swagger: "2.0"

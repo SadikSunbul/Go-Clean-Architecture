@@ -2,13 +2,16 @@ package http
 
 import (
 	"fmt"
+
 	"github.com/SadikSunbul/Go-Clean-Architecture/pkg/config"
 	"github.com/SadikSunbul/Go-Clean-Architecture/pkg/db"
 	"github.com/SadikSunbul/Go-Clean-Architecture/pkg/redis"
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/swagger"
 	"github.com/quangdangfit/gocommon/validation"
 
 	posthttp "github.com/SadikSunbul/Go-Clean-Architecture/internal/post/port/http"
+	"github.com/SadikSunbul/Go-Clean-Architecture/pkg/middleware"
 )
 
 // ::::::::::::::::::::::::::
@@ -34,6 +37,12 @@ func NewFiberServer(db db.IDataBase, cfg *config.Config, validator validation.Va
 
 func (s *FiberServer) Run() error {
 	s.app = fiber.New()
+
+	// Swagger
+	s.app.Get("/swagger/*", swagger.HandlerDefault)
+
+	// Rate limiter
+	s.app.Use(middleware.RateLimiter(s.cfg))
 
 	s.app.Get("/health", func(c *fiber.Ctx) error {
 		return c.SendStatus(fiber.StatusOK)

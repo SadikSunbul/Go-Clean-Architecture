@@ -14,6 +14,7 @@ import (
 // 			Repository
 // :::::::::::::::::::::::::::::
 
+//go:generate mockery --name=IRepository
 type IRepository[T interface{}] interface {
 	Create(entity T) (T, error)
 	Update(id string, entity bson.M) (T, error)
