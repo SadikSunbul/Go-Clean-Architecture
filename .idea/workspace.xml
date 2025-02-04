@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2082f271-2b93-46d5-8761-1a36d7315e8e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/post/repository/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/post/repository/repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/post/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/post/service/service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/repository/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repository/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/config/config.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +58,7 @@
     &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
     &quot;com.codeium.enabled&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;13-unit-test&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;kullanıcı-yönetimi-servisi&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/ledger&quot;,
@@ -73,7 +72,16 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.RepositoryTestSuite in github.com/SadikSunbul/Go-Clean-Architecture/internal/post/repository">
+  <component name="RunManager" selected="Go Build.go build github.com/SadikSunbul/Go-Clean-Architecture/cmd/api">
+    <configuration name="go build github.com/SadikSunbul/Go-Clean-Architecture/cmd/api" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="Go-Clean-Architecture" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/SadikSunbul/Go-Clean-Architecture/cmd/api" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/cmd/api/main.go" />
+      <method v="2" />
+    </configuration>
     <configuration name="RepositoryTestSuite in github.com/SadikSunbul/Go-Clean-Architecture/internal/post/repository" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="Go-Clean-Architecture" />
       <working_directory value="$PROJECT_DIR$/internal/post/repository" />
@@ -85,18 +93,6 @@
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
       <pattern value="^\QTest_RepositoryTestSuite\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestCopy_Map in github.com/SadikSunbul/Go-Clean-Architecture/pkg/utils" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="Go-Clean-Architecture" />
-      <working_directory value="$PROJECT_DIR$/pkg/utils" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="github.com/SadikSunbul/Go-Clean-Architecture/pkg/utils" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestCopy_Map\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestRateLimiter in github.com/SadikSunbul/Go-Clean-Architecture/pkg/middleware" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -138,11 +134,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build github.com/SadikSunbul/Go-Clean-Architecture/cmd/api" />
         <item itemvalue="Go Test.RepositoryTestSuite in github.com/SadikSunbul/Go-Clean-Architecture/internal/post/repository" />
         <item itemvalue="Go Test.Test_Create_Success in github.com/SadikSunbul/Go-Clean-Architecture/internal/post/repository" />
         <item itemvalue="Go Test.Test_RepositoryTestSuite in github.com/SadikSunbul/Go-Clean-Architecture/internal/post/repository" />
         <item itemvalue="Go Test.TestRateLimiter in github.com/SadikSunbul/Go-Clean-Architecture/pkg/middleware" />
-        <item itemvalue="Go Test.TestCopy_Map in github.com/SadikSunbul/Go-Clean-Architecture/pkg/utils" />
       </list>
     </recent_temporary>
   </component>
@@ -170,5 +166,16 @@
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/model/entity/user.go</url>
+          <line>21</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

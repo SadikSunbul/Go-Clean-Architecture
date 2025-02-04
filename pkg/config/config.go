@@ -2,6 +2,7 @@ package config
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -13,6 +14,13 @@ import (
 const (
 	ProductionEnv = "production"
 )
+
+func init() {
+	_, err := LoadConfig("config.yaml")
+	if err != nil {
+		log.Fatalf("Error on load configuration file, error: %v", err)
+	}
+}
 
 // :::::::::::::::::
 // 		Config

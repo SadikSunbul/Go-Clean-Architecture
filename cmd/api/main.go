@@ -32,10 +32,7 @@ func main() {
 	// ::::::::::::::::::::::::::::::::::::
 	//       Configuration
 	// ::::::::::::::::::::::::::::::::::::
-	cfg, err := config.LoadConfig("config.yaml")
-	if err != nil {
-		log.Fatalf("Error on load configuration file, error: %v", err)
-	}
+	cfg := config.GetConfig()
 	logger.Initialize(cfg.Environment)
 
 	// ::::::::::::::::::::::::::::::::::::
